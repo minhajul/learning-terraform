@@ -1,8 +1,8 @@
-# Learning Terraform with AWS
+## Learning Terraform with AWS
 
 This repository is created for the purpose of learning and practicing Terraform concepts and how they apply to AWS. It contains various Terraform configurations for provisioning resources and managing infrastructure on AWS.
 
-## Table of Contents
+### Table of Contents
 
 - [Introduction](#introduction)
 - [Prerequisites](#prerequisites)
@@ -12,11 +12,11 @@ This repository is created for the purpose of learning and practicing Terraform 
 - [Notes](#notes)
 - [Contributing](#contributing)
 
-## Introduction
+### Introduction
 
 Terraform is an open-source infrastructure as code (IaC) tool that allows you to define, provision, and manage cloud resources using a declarative configuration language. In this repository, we explore how to use Terraform to interact with AWS, including setting up networks, EC2 instances, databases, S3 buckets, and more.
 
-## Prerequisites
+### Prerequisites
 
 Before you start using Terraform with AWS, ensure you have the following installed and configured:
 
@@ -30,7 +30,7 @@ Additionally, set up your AWS credentials by configuring the AWS CLI:
 aws configure
 ```
 
-## Getting Started
+### Getting Started
 
 Clone this repository:
 
@@ -61,7 +61,7 @@ Once done, destroy the resources if you no longer need them:
 terraform destroy
 ```
 
-## Structure
+### Structure
 
 This repository is organized into different directories and files for various AWS resources:
 
@@ -73,7 +73,7 @@ This repository is organized into different directories and files for various AW
 - `variables.tf` – Define input variables for the Terraform configurations.
 - `main.tf` – The primary configuration file for the infrastructure.
 
-## Usage
+### Usage
 
 1. **Creating Resources:** To create resources, simply use the `terraform apply` command from within any of the subdirectories. Modify the variables and configurations to suit your needs.
 
@@ -81,11 +81,11 @@ This repository is organized into different directories and files for various AW
 
 3. **Variables and Customization:** Customize `variables.tf` and the main configuration files (`main.tf`) to define your AWS resources, such as security groups, instances, VPCs, etc.
 
-## Notes
+### Notes
 
 - Always be careful when applying Terraform configurations on your AWS account. Some resources can incur costs, such as EC2 instances and RDS databases.
 - Use the `terraform destroy` command to remove resources after experimentation or when they are no longer needed to avoid unnecessary charges.
 
-## Contributing
+### Contributing
 
 Feel free to fork this repository, make changes, and submit pull requests. This project is primarily for educational purposes, so if you encounter any issues, please open an issue, and we will work on resolving it.
