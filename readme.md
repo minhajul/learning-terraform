@@ -39,7 +39,7 @@ git clone https://github.com/minhajul/learning-terraform.git
 cd learning-terraform
 ```
 
-Initialize Terraform to download the necessary provider plugins:
+Change the path to the specific folder, now initialize Terraform to download the necessary provider plugins:
 
 ```bash
 terraform init
