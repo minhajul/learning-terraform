@@ -1,6 +1,6 @@
-## Deploy Basic Laravel Application in AWS
+## Create VPC in AWS
 
-Terraform script to create an EC2 instance with Nginx, Supervisor, PHP 8.4, and necessary libraries for Laravel. It also includes security group settings, SSH access, and required provisioning.
+Terraform script to create a VPC with public and private subnet.
 
 ### Prerequisites
 
