@@ -47,7 +47,6 @@ resource "aws_s3_bucket_public_access_block" "allow_public_acl" {
   restrict_public_buckets = true    # Restrict public buckets based on ACLs
 }
 
-
 # Add the bucket policy
 resource "aws_s3_bucket_policy" "public_read_policy" {
   bucket = aws_s3_bucket.learning_bucket.id
