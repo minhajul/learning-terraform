@@ -6,8 +6,8 @@ Terraform script to create an EC2 instance with Nginx, Supervisor, PHP 8.4, and 
 
 Before you start using Terraform with AWS, ensure you have the following installed and configured:
 
-- [Terraform](https://www.terraform.io/downloads.html) - Version 1.x or newer
-- [AWS CLI](https://aws.amazon.com/cli/) - Version 2.x
+- [Terraform](https://www.terraform.io/downloads.html)
+- [AWS CLI](https://aws.amazon.com/cli/)
 - [An AWS Account](https://aws.amazon.com/)
 
 Additionally, set up your AWS credentials by configuring the AWS CLI:
@@ -41,6 +41,5 @@ terraform destroy
 ```
 
 ### Notes
-
 - Always be careful when applying Terraform configurations on your AWS account. Some resources can incur costs, such as EC2 instances and RDS databases.
 - Use the `terraform destroy` command to remove resources after experimentation or when they are no longer needed to avoid unnecessary charges.
