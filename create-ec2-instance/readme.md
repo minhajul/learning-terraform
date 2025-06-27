@@ -1,14 +1,10 @@
-## Scalable Infrastructure in AWS
+## Create Just a EC2 Instance in AWS
 
-This Terraform configuration provisions a scalable and secure AWS infrastructure to host your application. It includes:
+This Terraform configuration provisions a simple ec2 to host your application. It includes:
 
-- A custom VPC with public and private subnets across multiple AZs
-- Bastion host in a public subnet for secure SSH access
-- Private EC2 instances launched via a Launch Template and managed by an Auto Scaling Group
-- Application Load Balancer with target group and listener
+- A custom VPC with public subnets across multiple AZs
+- App host in a public subnet for secure SSH access
 - Internet Gateway, NAT Gateway, route tables, and security groups
-
-Designed for high availability and scalability, this setup serves as a robust foundation for deploying application in production.
 
 ### Prerequisites
 
