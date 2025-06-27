@@ -23,7 +23,7 @@ resource "aws_subnet" "public" {
   vpc_id = aws_vpc.main.id
   cidr_block = cidrsubnet("10.0.0.0/16", 8, count.index)
   map_public_ip_on_launch = true
-  availability_zone = element(["ap-southeast-1a", "ap-southeast-1b"], count.index) # Adjust zone
+  availability_zone = ["ap-southeast-1a", "ap-southeast-1b"][count.index] # Adjust zone
   tags = {
     Name = "terraform-public-${count.index}" # Adjust tags
   }
@@ -33,7 +33,7 @@ resource "aws_subnet" "private" {
   count = 2
   vpc_id = aws_vpc.main.id
   cidr_block = cidrsubnet("10.0.0.0/16", 8, count.index + 2)
-  availability_zone = element(["ap-southeast-1a", "ap-southeast-1b"], count.index) # Adjust zone
+  availability_zone = ["ap-southeast-1a", "ap-southeast-1b"][count.index] # Adjust zone
   tags = {
     Name = "terraform-private-${count.index}" # Adjust tags
   }
