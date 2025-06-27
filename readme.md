@@ -6,7 +6,6 @@ This repository is created for the purpose of learning and practicing Terraform 
 - [Introduction](#introduction)
 - [Prerequisites](#prerequisites)
 - [Getting Started](#getting-started)
-- [Structure](#structure)
 - [Usage](#usage)
 - [Notes](#notes)
 - [Contributing](#contributing)
@@ -17,7 +16,7 @@ Terraform is an open-source infrastructure as code (IaC) tool that allows you to
 ### Prerequisites
 Before you start using Terraform with AWS, ensure you have the following installed and configured:
 
-- [Terraform](https://www.terraform.io/downloads.html) - Version 1.x or newer
+- [Terraform](https://www.terraform.io/downloads.html) - Latest
 - [AWS CLI](https://aws.amazon.com/cli/) - Version 2.x
 - [An AWS Account](https://aws.amazon.com/)
 
@@ -35,7 +34,7 @@ git clone https://github.com/minhajul/learning-terraform.git
 cd learning-terraform
 ```
 
-Change the path to the specific folder, now initialize Terraform to download the necessary provider plugins:
+Change the path to the specific folder and initialize Terraform to download the necessary provider plugins:
 
 ```bash
 terraform init
@@ -56,17 +55,6 @@ Once done, destroy the resources if you no longer need them:
 ```bash
 terraform destroy
 ```
-
-### Structure
-This repository is organized into different directories and files for various AWS resources:
-
-- `vpc/` – Contains Terraform configurations for setting up a VPC.
-- `ec2/` – Includes configurations to create EC2 instances.
-- `s3/` – Contains configurations to provision S3 buckets.
-- `rds/` – Sets up an RDS database instance.
-- `outputs.tf` – Terraform outputs after resources are created.
-- `variables.tf` – Define input variables for the Terraform configurations.
-- `main.tf` – The primary configuration file for the infrastructure.
 
 ### Usage
 1. **Creating Resources:** To create resources, simply use the `terraform apply` command from within any of the subdirectories. Modify the variables and configurations to suit your needs.
