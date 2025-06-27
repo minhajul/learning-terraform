@@ -16,8 +16,8 @@ Terraform is an open-source infrastructure as code (IaC) tool that allows you to
 ### Prerequisites
 Before you start using Terraform with AWS, ensure you have the following installed and configured:
 
-- [Terraform](https://www.terraform.io/downloads.html) - Latest
-- [AWS CLI](https://aws.amazon.com/cli/) - Version 2.x
+- [Terraform](https://www.terraform.io/downloads.html)
+- [AWS CLI](https://aws.amazon.com/cli/)
 - [An AWS Account](https://aws.amazon.com/)
 
 Additionally, set up your AWS credentials by configuring the AWS CLI:
