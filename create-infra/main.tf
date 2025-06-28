@@ -155,7 +155,7 @@ resource "aws_instance" "bastion" {
   instance_type = "t2.micro" # Adjust instance type
   subnet_id = aws_subnet.public[0].id
   security_groups = [aws_security_group.bastion_sg.id]
-  key_name = var.key_pair_name
+  key_name  = var.key_pair_name
   tags = {
     Name = "bastion-host" # Adjust tags
   }

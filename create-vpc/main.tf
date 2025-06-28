@@ -62,16 +62,16 @@ resource "aws_security_group" "public_sg" {
   vpc_id = aws_vpc.main.id
 
   ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
+    from_port = 22
+    to_port   = 22
+    protocol  = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
+    from_port = 0
+    to_port   = 0
+    protocol  = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
@@ -84,16 +84,16 @@ resource "aws_security_group" "private_sg" {
   vpc_id = aws_vpc.main.id
 
   ingress {
-    from_port       = 22
-    to_port         = 22
-    protocol        = "tcp"
+    from_port = 22
+    to_port   = 22
+    protocol  = "tcp"
     security_groups = [aws_security_group.public_sg.id]
   }
 
   egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
+    from_port = 0
+    to_port   = 0
+    protocol  = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
@@ -103,7 +103,7 @@ resource "aws_security_group" "private_sg" {
 }
 
 resource "aws_instance" "public_instance" {
-  ami           = "your-ami-id" # Change to your region's AMI ID
+  ami = "your-ami-id" # Change to your region's AMI ID
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.public.id
   vpc_security_group_ids = [
@@ -117,7 +117,7 @@ resource "aws_instance" "public_instance" {
 }
 
 resource "aws_instance" "private_instance" {
-  ami           = "your-ami-id" # Change to your region's AMI ID
+  ami = "your-ami-id" # Change to your region's AMI ID
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.private.id
   vpc_security_group_ids = [
@@ -130,13 +130,12 @@ resource "aws_instance" "private_instance" {
   }
 }
 
-
 output "public_ip" {
-  value = aws_instance.public_instance.public_ip
+  value       = aws_instance.public_instance.public_ip
   description = "Public IP of the public EC2 instance"
 }
 
 output "private_ip" {
-  value = aws_instance.private_instance.private_ip
+  value       = aws_instance.private_instance.private_ip
   description = "Private IP of the private EC2 instance"
 }

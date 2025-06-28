@@ -34,16 +34,16 @@ resource "aws_s3_bucket" "learning_bucket" {
 
 resource "aws_s3_bucket_acl" "learning_bucket" {
   bucket = aws_s3_bucket.learning_bucket.id
-  acl = "public-read"
+  acl    = "public-read"
 }
 
 # Disable Block Public Access for the bucket
 resource "aws_s3_bucket_public_access_block" "allow_public_acl" {
   bucket = aws_s3_bucket.learning_bucket.id
 
-  block_public_acls       = false   # Allow public ACLs
-  block_public_policy     = true    # Keep blocking public bucket policies
-  ignore_public_acls      = false   # Don't ignore public ACLs
+  block_public_acls = false   # Allow public ACLs
+  block_public_policy = true    # Keep blocking public bucket policies
+  ignore_public_acls = false   # Don't ignore public ACLs
   restrict_public_buckets = true    # Restrict public buckets based on ACLs
 }
 
@@ -52,7 +52,7 @@ resource "aws_s3_bucket_policy" "public_read_policy" {
   bucket = aws_s3_bucket.learning_bucket.id
 
   policy = jsonencode({
-    Version   = "2012-10-17"
+    Version = "2012-10-17"
     Statement = [
       {
         Effect    = "Allow"
