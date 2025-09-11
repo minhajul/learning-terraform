@@ -2,12 +2,18 @@ provider "aws" {
   region = var.aws_region
 }
 
+# You need to create key pair first
+resource "aws_key_pair" "web_key" {
+  key_name   = "web_key"
+  public_key = file("~/.ssh/web_key.pub")
+}
+
 resource "aws_vpc" "main" {
   cidr_block           = "10.0.0.0/16"
   enable_dns_support   = true
   enable_dns_hostnames = true
   tags = {
-    Name = var.aws_vpc_tag_name
+    Name = var.vpc_tag_name
   }
 }
 
@@ -54,12 +60,12 @@ resource "aws_nat_gateway" "nat" {
   allocation_id = aws_eip.nat.id
   subnet_id     = aws_subnet.public[0].id
   tags = {
-    Name = "terraform-nat-gw" # Adjust tags
+    Name = var.aws_nat_gateway_name
   }
 }
 
 resource "aws_security_group" "app_sg" {
-  name = "app-sg" # Adjust sg name
+  name = var.aws_security_group_name
   description = "Allow SSH"
   vpc_id      = aws_vpc.main.id
 
@@ -78,13 +84,21 @@ resource "aws_security_group" "app_sg" {
   }
 }
 
-resource "aws_instance" "app" {
+resource "aws_instance" "web_server" {
   ami = "ami-0b1e534a4ff9019e0" # Amazon Linux 2
   instance_type = "t2.micro" # Adjust instance type
   subnet_id = aws_subnet.public[0].id
   security_groups = [aws_security_group.app_sg.id]
+
   key_name  = var.key_pair_name
+  public_key = file("~/.ssh/web_key.pub")
+
   tags = {
-    Name = "app-host" # Adjust tags
+    Name = "app-web_server" # Adjust tags
   }
+  user_data = <<-EOF
+      #!/bin/bash
+      apt-get update
+      apt-get install -y nginx
+    EOF
 }

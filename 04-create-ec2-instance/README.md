@@ -16,6 +16,15 @@ aws configure
 
 ### Getting Started
 
+If you don't have an SSH key pair, generate one using the following command:
+
+```bash
+ssh-keygen -t rsa -b 2048 -f ~/.ssh/web_key -N ""
+```
+
+This will create two files: `web_key (private key)` and `web_key.pub (public key)` in your `.ssh` directory.
+
+
 Adjust ```main.tf``` file according to your need and run below command to initialize Terraform to download the necessary provider plugins:
 
 ```bash
