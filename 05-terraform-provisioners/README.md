@@ -19,6 +19,13 @@ aws configure
 
 ### Getting Started
 
+Generate an SSH key pair if you don’t have one already. This key will be used to SSH into the EC2 instance.
+```bash
+ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N ""
+```
+
+The public key will be saved in `~/.ssh/id_rsa.pub` by default.
+
 Adjust ```main.tf``` file according to your need and run below command to initialize Terraform to download the necessary provider plugins:
 
 ```bash
